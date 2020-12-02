@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const api = require('./server/routes/api')
-const City = require('./server/model/City')
+// const City = require('./server/model/City')
 
 app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
