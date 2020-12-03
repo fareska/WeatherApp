@@ -1,32 +1,54 @@
-
 class WeatherManager {
-    constructor(){
-        this.cityData = []
+  constructor() {
+    this.cityData = []
+  }
+
+  async getDataFromDB () {
+    const cities = await $.get('/cities') 
+      this.cityData.push(...cities)
+  }
+
+  async getCityData(cityName) {
+    const cityData = await $.get(`city/${cityName}`)
+    let cityObj = {
+      name: cityData.name,
+      temperature: cityData.main.temp,
+      condition: cityData.weather[0].description,
+      conditionPic: ` http://openweathermap.org/img/wn/${cityData.weather[0].icon}@2x.png`,
     }
+    this.cityData.push(cityObj)
+    console.log(this.cityData)
+  }
 
-    getDataFromDB() {
-        $.get('/cities/tel aviv', (res)=> {
-            
-        //{
-            // data.name 
-            // data.main.temp
-            // data.weather.description
-        // }
-            this.cityData.push(res)
-        })
+  async saveCity(cityObj) {
+    const savedCity = await $.post(`/city`, cityObj)
+    this.getDataFromDB()
+  }
 
-        // $.ajax({
-        //     method: "GET",
-        //     url: '/cities',
-        //     success: (data)=> {
-        //         cityData.push(data)
-        //         console.log(data)
-        //     },
-        //     error: (err) => {console.log(err)}
-        // })
-    }
-} 
+  removeCity(cityId) {
+    $.ajax({
+      method: 'DELETE',
+      url: `/city/${cityId}`,
+      success: () => {
+        this.cityData.splice(0)
+        this.getDataFromDB()
+      },
+      error: (err) => {
+        console.log(err)
+      },
+    })
+  }
 
-const m = new WeatherManager 
-m.getDataFromDB()
-console.log(m.cityData)
+  getData = () => {
+    this.data
+  }
+
+}
+
+
+//getDataFromDB
+//getCityData
+//saveCity
+//removeCity
+//getData
+
