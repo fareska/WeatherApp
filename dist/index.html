@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Balthazar" rel="stylesheet">
-    <title>WeatherApp</title>
-</head>
-<body>
-    <div id="container">
-        <div>
-            <input id="input" type="text"  placeholder="City">
-            <button id="button" onclick="">Get Roster</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+            integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Balthazar"
+            rel="stylesheet"
+        />
+        <title>WeatherApp</title>
+    </head>
+    <body>
+        <div id="container">
+            <div>
+                <input id="input" type="text" placeholder="City" />
+                <button
+                    id="button"
+                    class="fas fa-search"
+                    onclick="searchCity()"
+                ></button>
+            </div>
         </div>
-    </div>
-    
-    <div id="citiesContainer">
-    </div>
 
+        <div id="citiesContainer"></div>
 
-    <script src="./jquery/dist/jquery.js"></script>
-    <script src="./handlebars/dist/handlebars.js"></script>
-    <script src="logic.js"></script>
-    <script src="render.js"></script>
-    <script src="main.js"></script>
-</body>
+        <script id="cities-template" type="text/x-handlebars-template">
+            {{#each city}}
+                <div id="{{_id}}" class='saved'>
+                    <p class="temperature">{{temperature}}</p>
+                    <p class="name">{{name}}</p>
+                    <img src="{{conditionPic}}" alt="" srcset="">
+                    <p class="condition">{{condition}}</p>
+                    <div class="delete">
+                        <i  class="far fa-trash-alt"></i>
+                    </div>
+                    <!-- {{#if isSaved}}
+                        <i  class="far fa-trash-alt"></i>
+                    {{else}}
+                        <i  class="fas fa-plus-circle"></i>
+                    {{/if}} -->
+                </div>
+            {{/each}}
+        </script>
+
+        <script id="newCity-template" type="text/x-handlebars-template">
+            <div class='not-saved'>
+                <p class='temperature'>{{temperature}}</p>
+                <p class='name'>{{name}}</p>
+                <img class='conditionPic' src='{{conditionPic}}'/>
+                <p class='condition'>{{condition}}</p>
+                {{#if isSaved}}
+                <div class="delete">
+                    <i  class="far fa-trash-alt" ></i>
+                </div>
+                {{else}}
+                <div class="add">
+                    <i  class="fas fa-plus-circle" ></i>
+                </div>
+                {{/if}} 
+            </div>
+        </script>
+
+        <script src="./jquery/dist/jquery.js"></script>
+        <script src="./handlebars/dist/handlebars.js"></script>
+        <script src="logic.js"></script>
+        <script src="render.js"></script>
+        <script src="main.js"></script>
+    </body>
 </html>
