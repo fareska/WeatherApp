@@ -7,12 +7,4 @@ class Renderer {
         const newHtml = template({ city: citiesArr })
         $('#citiesContainer').empty().append(newHtml)
     }
-
-    loadNewCity(cityObj){
-        const source = $('#newCity-template').html()
-        const template = Handlebars.compile(source)
-
-        const newHtml = template(cityObj)
-        $('#citiesContainer').append(newHtml)  //.find(`#${cityObj.id}`).empty()
-    }
 }

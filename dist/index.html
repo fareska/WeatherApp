@@ -32,39 +32,22 @@
 
         <script id="cities-template" type="text/x-handlebars-template">
             {{#each city}}
-                <div id="{{_id}}" class='saved'>
+                <div id="{{_id}}" class="city">
                     <p class="temperature">{{temperature}}</p>
                     <p class="name">{{name}}</p>
                     <img src="{{conditionPic}}" alt="" srcset="">
                     <p class="condition">{{condition}}</p>
-                    <div class="delete">
+                    {{#if isSaved}}
+                    <div class="{{isSaved}}">
                         <i  class="far fa-trash-alt"></i>
                     </div>
-                    <!-- {{#if isSaved}}
-                        <i  class="far fa-trash-alt"></i>
                     {{else}}
-                        <i  class="fas fa-plus-circle"></i>
-                    {{/if}} -->
+                        <div class="{{isSaved}}">
+                            <i  class="fas fa-plus-circle" ></i>
+                        </div>
+                    {{/if}}
                 </div>
             {{/each}}
-        </script>
-
-        <script id="newCity-template" type="text/x-handlebars-template">
-            <div class='not-saved'>
-                <p class='temperature'>{{temperature}}</p>
-                <p class='name'>{{name}}</p>
-                <img class='conditionPic' src='{{conditionPic}}'/>
-                <p class='condition'>{{condition}}</p>
-                {{#if isSaved}}
-                <div class="delete">
-                    <i  class="far fa-trash-alt" ></i>
-                </div>
-                {{else}}
-                <div class="add">
-                    <i  class="fas fa-plus-circle" ></i>
-                </div>
-                {{/if}} 
-            </div>
         </script>
 
         <script src="./jquery/dist/jquery.js"></script>
