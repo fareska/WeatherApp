@@ -21,7 +21,7 @@ class WeatherManager {
                 const cityData = await $.get(`city/${cityName}`)
                     let cityObj = {
                         name: cityData.name,
-                        temperature: cityData.main.temp,
+                        temperature: Math.round(cityData.main.temp),
                         condition: cityData.weather[0].description,
                         conditionPic: ` http://openweathermap.org/img/wn/${cityData.weather[0].icon}@2x.png`,
                         isSaved: false        

@@ -17,7 +17,7 @@
         <title>WeatherApp</title>
     </head>
     <body>
-        <div id="container">
+        <div id="searchContainer">
             <div>
                 <input id="input" type="text" placeholder="City" />
                 <button
@@ -33,13 +33,13 @@
         <script id="cities-template" type="text/x-handlebars-template">
             {{#each city}}
                 <div id="{{_id}}" class="city">
-                    <p class="temperature">{{temperature}}</p>
+                    <p class="temperature">{{temperature}}<span>&#8451;</span></p>
                     <p class="name">{{name}}</p>
                     <img src="{{conditionPic}}" alt="" srcset="">
                     <p class="condition">{{condition}}</p>
                     {{#if isSaved}}
                     <div class="{{isSaved}}">
-                        <i  class="far fa-trash-alt"></i>
+                        <i class="fas fa-trash"></i>
                     </div>
                     {{else}}
                         <div class="{{isSaved}}">
