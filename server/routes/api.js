@@ -7,7 +7,6 @@ const City = require('../model/City')
 
 const apiKey = '197cf43e7d01659ab1e8742f02fcaaa4'
 
-//This route should take a cityName parameter and return the city data in a response.
 router.get('/city/:cityName', function (req, res) {
   const { cityName } = req.params
 
@@ -21,14 +20,12 @@ router.get('/city/:cityName', function (req, res) {
   )
 })
 
-//This route should find all of the city data saved in your DB, and send it to the client
 router.get('/cities', function (req, res) {
   City.find({}, (err, data) => {
     res.send(data)
   })
 })
 
-//This route should save a new City to your DB
 router.post('/city', function (req, res) {
   const newCity = new City(req.body)
   newCity
@@ -39,10 +36,8 @@ router.post('/city', function (req, res) {
     .catch((err) => res.send(err))
 })
 
-//This route should take a cityName parameter and delete the correct city from your DB
 router.delete('/city/:cityId', async (req, res) => {
   const { cityId } = req.params
-//   const cityId = req.params.cityId
 
   console.log(cityId)
   const city = await City.findByIdAndDelete(cityId)

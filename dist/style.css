@@ -1,30 +1,24 @@
-
-
 body {
-    background-image: url("./background.jpg");
+    background-image: url('./background.jpg');
     background-size: 100%;
-   }
+}
 
-#citiesContainer{
+#citiesContainer {
     margin-top: 10px;
 }
 
 #input {
-    /* background-image:url("./background.jpeg"); */
-    /* background-color:rgb(0, 238, 255); */
     border-radius: none;
     border-bottom: 2px solid black;
-    /* margin-left: 20vw; */
     width: 80%;
     height: 30px;
-    
 }
 
-button{
+button {
     height: 30px;
 }
 
-.city{
+.city {
     margin-top: 40px;
     border-radius: 1px solid;
     padding: 10px;
@@ -32,36 +26,32 @@ button{
     box-shadow: currentColor;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: "n t c i d"
-    
+    grid-template-areas: 'n t c i d';
 }
 
-.name{
+.name {
     display: inline;
     grid-area: n;
     font-size: x-large;
     color: white;
 }
 
-.temperature{
+.temperature {
     display: inline;
     grid-area: t;
     font-size: x-large;
     color: white;
 }
 
-img{
+img {
     display: inline;
-     width: 100%;
+    width: 100%;
     height: 100%;
- 
     grid-area: i;
     margin-bottom: 30%;
-    
-
 }
 
-.condition{
+.condition {
     display: inline;
     position: relative;
     grid-area: c;
@@ -69,15 +59,14 @@ img{
     color: white;
 }
 
-.city>div{
+.city > div {
     display: inline;
-    grid-area: d ;
+    grid-area: d;
     align-content: center;
     align-content: flex-end;
-    /* align-items: center; */
 }
 
-.city>div>i{
+.city > div > i {
     margin-top: 30%;
     margin-left: 30%;
     align-content: center;

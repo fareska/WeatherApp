@@ -1,4 +1,3 @@
-
 const manager = new WeatherManager
 const renderer = new Renderer
 
@@ -26,6 +25,7 @@ $('#citiesContainer').on('click', 'i', async function(){
             }
 })
 
+
 $('#citiesContainer').on('click', 'i',async function(){
             if($(this).closest('div').attr('class') === "true"){
                 let cityId = $(this).closest('.city').attr('id')
@@ -33,4 +33,3 @@ $('#citiesContainer').on('click', 'i',async function(){
                 renderer.loadCities(citiesArr)
             }
         })
-
