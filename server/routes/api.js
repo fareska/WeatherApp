@@ -7,7 +7,7 @@ require('dotenv').config()
 const City = require('../model/City')
 
 const apiKey = process.env.API_KEY
-console.log(apiKey)
+
 router.get('/city/:cityName', function (req, res) {
   const { cityName } = req.params
 
