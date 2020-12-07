@@ -2,11 +2,12 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 const url = require(`urllib`)
+require('dotenv').config()
 
 const City = require('../model/City')
 
-const apiKey = '197cf43e7d01659ab1e8742f02fcaaa4'
-
+const apiKey = process.env.API_KEY
+console.log(apiKey)
 router.get('/city/:cityName', function (req, res) {
   const { cityName } = req.params
 
