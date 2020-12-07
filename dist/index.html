@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+            integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Balthazar"
+            rel="stylesheet"
+        />
+        <title>WeatherApp</title>
+    </head>
+    <body>
+        <div id="searchContainer">
+            <div>
+                <input id="input" type="text" placeholder="City" />
+                <button
+                    id="button"
+                    class="fas fa-search"
+                    onclick="searchCity()"
+                ></button>
+            </div>
+        </div>
+
+        <div id="citiesContainer"></div>
+
+        <script id="cities-template" type="text/x-handlebars-template">
+            {{#each city}}
+                <div id="{{_id}}" class="city">
+                    <p class="temperature">{{temperature}}<span>&#8451;</span></p>
+                    <p class="name">{{name}}</p>
+                    <img src="{{conditionPic}}" alt="" srcset="">
+                    <p class="condition">{{condition}}</p>
+                    {{#if isSaved}}
+                    <div class="{{isSaved}}">
+                        <i class="fas fa-trash fa-2x"></i>
+                    </div>
+                    {{else}}
+                        <div class="{{isSaved}}">
+                            <i  class="fas fa-save fa-2x" ></i>
+                        </div>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </script>
+
+        <script src="./jquery/dist/jquery.js"></script>
+        <script src="./handlebars/dist/handlebars.js"></script>
+        <script src="logic.js"></script>
+        <script src="render.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

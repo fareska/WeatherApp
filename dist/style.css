@@ -1,0 +1,74 @@
+body {
+    background-image: url('./background.jpg');
+    background-size: 100%;
+}
+
+#citiesContainer {
+    margin-top: 10px;
+}
+
+#input {
+    border-radius: none;
+    border-bottom: 2px solid black;
+    width: 80%;
+    height: 30px;
+}
+
+button {
+    height: 30px;
+}
+
+.city {
+    margin-top: 40px;
+    border-radius: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px;
+    box-shadow: currentColor;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: 'n t c i d';
+}
+
+.name {
+    display: inline;
+    grid-area: n;
+    font-size: x-large;
+    color: white;
+}
+
+.temperature {
+    display: inline;
+    grid-area: t;
+    font-size: x-large;
+    color: white;
+}
+
+img {
+    display: inline;
+    width: 100%;
+    height: 100%;
+    grid-area: i;
+    margin-bottom: 30%;
+}
+
+.condition {
+    display: inline;
+    position: relative;
+    grid-area: c;
+    font-size: x-large;
+    color: white;
+}
+
+.city > div {
+    display: inline;
+    grid-area: d;
+    align-content: center;
+    align-content: flex-end;
+}
+
+.city > div > i {
+    margin-top: 30%;
+    margin-left: 30%;
+    align-content: center;
+    size: 100%;
+}
